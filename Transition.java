@@ -2,27 +2,25 @@ public class Transition {
 
     public String input;
     public String tapeSymbol;
+    public State nextState;
+    public String write;
+    public int direction;
 
-    public Transition(String input, String tapeSymbol) {
+    public Transition(String input, String tapeSymbol, State nextState, String write, int direction) {
         this.input = input;
         this.tapeSymbol = tapeSymbol;
+        this.nextState = nextState;
+        this.write = write;
+        this.direction = direction;
 
     }
 
-    public State moveToNext() {
-        return new State("", );
-
+    public String getRequiredInput() {
+        return input;
     }
 
-    public String write() {
-        return "";
-
-    }
-
-    public String movement() {
-        // TODO: tells the tape to move left or right
-        return "";
-
+    public State getNextState() {
+        return nextState;
     }
 
 }

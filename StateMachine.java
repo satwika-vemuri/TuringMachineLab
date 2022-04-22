@@ -9,8 +9,11 @@ public class StateMachine {
         this.currentPosition = 0; 
     } 
 
+    public State getCurrentState() {
+        return states.get(currentPosition);
+    }
+
     public move(String input) {
-        State currentState = states[currentPosition];
         
 
     }

@@ -12,9 +12,15 @@ public class State {
 
     }
 
-    public State nextState(Transition t) {
-
-
+    public State getNextState(String input) {
+        // Assumes legal transition
+        for (Transition t : transitions) {
+            if (t.getRequiredInput().equals(input)) {
+                return t.getNextState();
+            }
+        }
+        
+        return Error;
     }
 
 
