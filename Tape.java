@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Tape {
     
-    ArrayList<String> input = new ArrayList<String>();
-    int pos = 0; 
-    int count = 0;
+    public ArrayList<String> input = new ArrayList<String>();
+    public int pos = 0; 
+    public int count = 0;
 
-    public Tape(String in, Object o, int pos){
+    public Tape(String in, int pos){
         this.pos = pos;
         input.add(null);
         for(int i = 0; i < in.length(); i++){

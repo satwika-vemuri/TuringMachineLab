@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 
 public class StateMachine {
-    private ArrayList<State> states;
-    private State currentState;
+    public ArrayList<State> states;
+    public int currentPosition;
 
-    public StateMachine(ArrayList<State> states, State startingState) {
+    public StateMachine(ArrayList<State> states) {
         this.states = states;
-        this.currentState = startingState; 
+        this.currentPosition = 0; 
     } 
 
     public State getCurrentState() {
-        return this.currentState;
+        return states.get(currentPosition);
+    
     }
-
     public void move(String input) {
-        this.currentState = currentState.getNextState(input);
+        this.currentPosition = this.getCurrentState().getNextState(input).statesIndex;
     }
 
     

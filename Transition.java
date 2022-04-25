@@ -1,11 +1,11 @@
 public class Transition {
 
     private String read;
-    private State nextState;
+    private String nextState;
     private String write;
     private int direction;
 
-    public Transition(String read, String write, State nextState, int direction) {
+    public Transition(String read, String nextState, String write, int direction) {
         this.read = read;
         this.write = write;
         this.nextState = nextState;
@@ -13,20 +13,20 @@ public class Transition {
 
     }
 
-    public String getRead() {
-        return read;
+    public String getRead() { // returns the input/read
+        return this.read;
     }
 
-    public String getWrite() {
-        return write;
+    public String getWrite() { // returns what the State said to write
+        return this.write;
     }
 
-    public State getNextState() {
-        return nextState;
+    public String getNextState() { // returns the next state given the instructions on the previous state
+        return this.nextState;
     }
 
-    public int getDirection() {
-        return direction;
+    public Integer direction() { //returns 0 for left, 1 for right
+        return this.direction;
     }
 
 }
