@@ -15,12 +15,12 @@ public class State {
     public State getNextState(String input) {
         // Assumes legal transition
         for (Transition t : transitions) {
-            if (t.getRequiredInput().equals(input)) {
+            if (t.getRead().equals(input)) {
                 return t.getNextState();
             }
         }
         
-        return Error;
+        return null;
     }
 
 

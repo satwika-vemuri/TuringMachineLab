@@ -1,26 +1,32 @@
 public class Transition {
 
-    public String input;
-    public String tapeSymbol;
-    public State nextState;
-    public String write;
-    public int direction;
+    private String read;
+    private State nextState;
+    private String write;
+    private int direction;
 
-    public Transition(String input, String tapeSymbol, State nextState, String write, int direction) {
-        this.input = input;
-        this.tapeSymbol = tapeSymbol;
-        this.nextState = nextState;
+    public Transition(String read, String write, State nextState, int direction) {
+        this.read = read;
         this.write = write;
+        this.nextState = nextState;
         this.direction = direction;
 
     }
 
-    public String getRequiredInput() {
-        return input;
+    public String getRead() {
+        return read;
+    }
+
+    public String getWrite() {
+        return write;
     }
 
     public State getNextState() {
         return nextState;
+    }
+
+    public int getDirection() {
+        return direction;
     }
 
 }
