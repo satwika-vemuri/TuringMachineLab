@@ -14,11 +14,13 @@ public class State {
 
     }
 
-    public State getNextState(String input) {
+
+    public getStateFromName
+    public Transition getTransition(String input) {
         // Assumes legal transition
         for (Transition t : transitions) {
             if (t.getRead().equals(input)) {
-                return t.getNextState();
+                return t;
             }
         }
         

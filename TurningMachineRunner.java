@@ -16,12 +16,15 @@ public class TurningMachineRunner {
             Arrays.asList(S0, S1, S2, A));
         StateMachine stateMachine = new StateMachine(new ArrayList<State>());
 
-
+        this.runMachine(tape, stateMachine);
 
     }
 
     public String runMachine(Tape tape, StateMachine sm) {
-        return null;
+        while (!sm.getCurrentState().isTerminal) {
+            String input =  tape.read();
+            sm.move(input);
+        }
 
     }
 

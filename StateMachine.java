@@ -13,8 +13,10 @@ public class StateMachine {
         return states.get(currentPosition);
     
     }
-    public void move(String input) {
-        this.currentPosition = this.getCurrentState().getNextState(input).statesIndex;
+    public Transition move(String input) {
+        Transition t = this.getCurrentState().getTransition(input);
+        this.currentPosition = t.getNextState().statesIndex;
+        this.current
     }
 
     
