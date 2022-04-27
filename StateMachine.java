@@ -13,10 +13,22 @@ public class StateMachine {
         return states.get(currentPosition);
     
     }
+
+    public State getStateFromName(String name){
+        for(State state : states){
+            if(state.name.equals(name)){
+                return state;
+            }
+        }
+        System.out.println("ERROR IN GETTING STATE");
+        return null;
+    }
+
     public Transition move(String input) {
         Transition t = this.getCurrentState().getTransition(input);
-        this.currentPosition = t.getNextState().statesIndex;
-        this.current
+        System.out.println(t.getNextState());
+        this.currentPosition = this.getStateFromName(t.getNextState()).statesIndex;
+        return t;
     }
 
     

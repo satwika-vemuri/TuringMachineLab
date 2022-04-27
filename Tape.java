@@ -8,12 +8,13 @@ public class Tape {
 
     public Tape(String in, int pos){
         this.pos = pos;
-        input.add(null);
+        input.add("0"); //String 0 represents null when after hashtags
+        this.pos += 1;
         for(int i = 0; i < in.length(); i++){
             input.add(in.substring(i, i+1));           
         }
-        input.add(null);
-    }
+        input.add("0");
+    } 
 
     public String read(){
         return input.get(pos);
@@ -27,18 +28,18 @@ public class Tape {
     }
 
     public void left(){
-        if(pos > 0){
+        if(pos > 1){
             pos--;
         }
         else{
-            input.add(0, null); //pos should still be 0
+            input.add(0, "0"); //pos should still be 0
         }
     }
     public void right(){
         if(pos < input.size() - 1)
             pos++;
         else{
-            input.add(null);
+            input.add("0");
             pos++;
         }
     }

@@ -5,7 +5,7 @@ public class Transition {
     private String write;
     private int direction;
 
-    public Transition(String read, String nextState, String write, int direction) {
+    public Transition(String read, String write, String nextState, int direction) {
         this.read = read;
         this.write = write;
         this.nextState = nextState;
@@ -25,7 +25,7 @@ public class Transition {
         return this.nextState;
     }
 
-    public Integer direction() { //returns 0 for left, 1 for right
+    public Integer getDirection() { //returns 0 for left, 1 for right
         return this.direction;
     }
 
