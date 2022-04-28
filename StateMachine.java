@@ -26,7 +26,6 @@ public class StateMachine {
 
     public Transition move(String input) {
         Transition t = this.getCurrentState().getTransition(input);
-        System.out.println(t.getNextState());
         this.currentPosition = this.getStateFromName(t.getNextState()).statesIndex;
         return t;
     }
