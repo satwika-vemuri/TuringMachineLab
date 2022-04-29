@@ -21,7 +21,7 @@ public class Tape {
     }
 
     public void write(String value){
-        if(value == "1"){
+        if((value == "1") && !(this.read().equals("1"))){
             count++;
         }
         input.set(pos, value);

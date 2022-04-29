@@ -7,7 +7,7 @@ public class TurningMachineRunner {
 
     public static void main(String[] args) {
 
-        String input = "#000#";
+        String input = "#0#";
         Tape tape = new Tape(input, input.length()-2);
 
         Transition[] startTransitions = {(new Transition("1", "0", "carry", 0)), (new Transition("0", "1", "add", 0))};    
@@ -55,14 +55,13 @@ public class TurningMachineRunner {
         int ones = runMachine(tape, stateMachine);
         System.out.printf("Final one count: %d\n", ones);
         System.out.printf("Final score: %.5f", (Float.valueOf(ones) / (17 + 3 + input.length())));
+
     }
 
     public static int runMachine(Tape tape, StateMachine sm) {
         while (!sm.getCurrentState().isTerminal) {
             String input =  tape.read();
-            System.out.println(input);
             Transition transition = sm.move(input);
-            System.out.println(sm.getCurrentState().name);
             tape.write(transition.getWrite());
             if (transition.getDirection() == 0) {
                 tape.left();
