@@ -4,7 +4,6 @@ public class Tape {
     
     public ArrayList<String> input = new ArrayList<String>();
     public int pos = 0; 
-    public int count = 0;
 
     public Tape(String in, int pos){
         this.pos = pos;
@@ -21,9 +20,6 @@ public class Tape {
     }
 
     public void write(String value){
-        if((value == "1") && !(this.read().equals("1"))){
-            count++;
-        }
         input.set(pos, value);
     }
 
@@ -44,7 +40,4 @@ public class Tape {
         }
     }
 
-    public int oneCount(){
-        return count;
-    }
 }
