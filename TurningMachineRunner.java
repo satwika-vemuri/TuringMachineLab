@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.annotation.processing.RoundEnvironment;
 
 public class TurningMachineRunner {
 
     public static void main(String[] args) {
 
-        String input = "#000000000000#";
+        String input = "#0000000000000000000#";
         Tape tape = new Tape(input, input.length()-2);
 
         Transition[] startTransitions = {(new Transition("1", "0", "carry", 0)), (new Transition("0", "1", "add", 0))};    
@@ -52,14 +51,16 @@ public class TurningMachineRunner {
         ArrayList<State> states = new ArrayList<State>(
             Arrays.asList(S0, add, carry, leftHash, toLeftHash, L1, L2, L3, L4, toRightHash, moveRight, R1, R2, R3, R4, backToRightHash, done));
         StateMachine stateMachine = new StateMachine(states);
-        int ones = runMachine(tape, stateMachine);
+
+        Tape returnedTape = runMachine(tape, stateMachine);
+        int ones = returnedTape.input.size() - input.length() - 1;
         System.out.printf("Input: %s\n", input);
         System.out.printf("Final one count: %d\n", ones);
         System.out.printf("Final score: %.5f", (Float.valueOf(ones) / (17 + 3 + input.length())));
 
     }
 
-    public static int runMachine(Tape tape, StateMachine sm) {
+    public static Tape runMachine(Tape tape, StateMachine sm) {
         while (!sm.getCurrentState().isTerminal) {
             String input =  tape.read();
             Transition transition = sm.move(input);
@@ -70,8 +71,7 @@ public class TurningMachineRunner {
                 tape.right();
             }
         }
-
-        return tape.input.size() - 4;
+        return tape;
 
     }
 
